@@ -1,14 +1,14 @@
 name: dart_fundamentos
-description: A sample command-line application.
+description: Projeto referente ao curso dart fundamentos da academia do flutter
 version: 1.0.0
-# homepage: https://www.example.com
+homepage: https://academiadoflutter.com.br
 
 environment:
   sdk: '>=2.14.3 <3.0.0'
 
 
-# dependencies:
-#   path: ^1.8.0
+dependencies:
+  path: ^1.8.0
 
 dev_dependencies:
   lints: ^1.0.0
