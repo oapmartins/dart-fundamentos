@@ -35,4 +35,29 @@ void main() {
   final somaNumeros = numerosGeradosParaCalculo.fold<int>(
       0, (previousValue, numero) => previousValue += numero);
   print(somaNumeros);
+
+  // Spreed Operator
+  var listaNumerosSpreedB = [4, 5, 6];
+  var listaNumerosSpreed = [1, 2, 3, ...listaNumerosSpreedB];
+
+  print(listaNumerosSpreedB);
+  print(listaNumerosSpreed);
+
+  // Colletion if
+  var promocaoAtiva = false;
+  var produtos = [
+    'cerveja',
+    'refrigerante',
+    if (promocaoAtiva) 'Suco Laranja',
+  ];
+
+  print(produtos);
+
+  // Collection for
+  var listaInts = [1, 2, 3];
+  var listaStrings = [
+    '#0',
+    for (var i in listaInts) '#$i',
+  ];
+  print(listaStrings);
 }
