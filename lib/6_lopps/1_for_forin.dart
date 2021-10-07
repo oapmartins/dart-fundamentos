@@ -11,4 +11,6 @@ void main() {
   for (var numero in numeros) {
     print(numero);
   }
+
+  print("teste");
 }
