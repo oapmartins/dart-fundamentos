@@ -1,5 +1,3 @@
-import 'package:dart_fundamentos/4_tratamento_nulos/2_null_aware_operator.dart';
-
 void main() {
   final numeros = [1, 2, 3, 4];
   numeros.add(1);
