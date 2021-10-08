@@ -19,13 +19,36 @@ void main() {
 
   // Resolução
 
-  print('Lista dos Pacientes com maios de 20 anos');
-  var listaPacientesAcima20 =
-      pacientes.where((element) => int.parse(element.split("|")[1]) > 20);
-
-  for (var paciente in listaPacientesAcima20) {
-    final pacienteSeparado = paciente.split('|');
-    print(
-        'Seu nome é ${pacienteSeparado.first}, e sua idade é ${pacienteSeparado[1]}');
+  // PACIENTES COM MAIS DE 20 ANOS DE IDADE.
+  print(
+      '\n1 - Apresente os pacientes com mais de 20 anos e print o nome deles');
+  for (final paciente in pacientes) {
+    final pacientesDados = paciente.split('|');
+    final idade = int.tryParse(pacientesDados[1]) ?? 0;
+    if (idade > 20) {
+      print(
+          'Seu nome é ${pacientesDados.first}, e sua idade é ${pacientesDados[1]}');
+    }
   }
+  // PACIENTES EXISTENSTES EM CADA PROFISSAO.
+  print(
+      '\n2 - Apresente quantos pacientes existem para cada profissão (desenvolvedor, estudante, dentista, jornalista)');
+  final arrayProfissoes = [
+    'desenvolvedor',
+    'estudante',
+    'dentista',
+    'jornalista'
+  ];
+
+  arrayProfissoes.forEach((profissao) {
+    print(
+        '$profissao: ${pacientes.where((p) => p.split("|")[2].toLowerCase() == profissao).toList().length}');
+  });
+
+  // PACIENTES QUE MORAM EM SP.
+  print('\n3 - Apresente a quantidade de pacientes que moram em SP');
+  var listaPacientesSP = pacientes
+      .where((element) => element.split("|").last.toLowerCase() == 'sp');
+
+  print('Quantidade de pessoas que moram em SP: ${listaPacientesSP.length}');
 }
