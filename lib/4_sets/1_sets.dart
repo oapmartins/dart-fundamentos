@@ -34,5 +34,6 @@ void main() {
   // Somente os que são iguais nas duas listas.
   print(numeros1.intersection(numeros2));
 
+  // Busca o valor que é identico ao buscado.
   print(numeros2.lookup(12));
 }
