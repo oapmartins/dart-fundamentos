@@ -6,6 +6,9 @@ void main() {
   camisetaNike.cor = 'Preta';
   camisetaNike.marca = 'Nike';
 
+  print(Camiseta.nome);
+  print(Camiseta.recuperarNome());
+
   print('''
     Tamanho: ${camisetaNike.tamanho}
     Cor: ${camisetaNike.cor}
