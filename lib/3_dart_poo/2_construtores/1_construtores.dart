@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/3_dart_poo/2_construtores/pessoa.dart';
+import 'pessoa.dart';
 
 void main() {
   var pessoa = Pessoa(
