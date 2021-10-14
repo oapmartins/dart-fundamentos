@@ -6,6 +6,10 @@ class Pessoa {
   // Nós estamos falando de composição.
   Endereco endereco = Endereco();
   CPF cpf = CPF();
+
+  // Agregação
+  // Quando um atributo de associação não é obrigatório
+  // Nós estamos falando de agregação
   Telefone? telefone;
 }
 
