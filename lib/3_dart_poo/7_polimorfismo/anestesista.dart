@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/3_dart_poo/7_polimorfismo/medico.dart';
+import 'medico.dart';
 
 class Anestesista extends Medico {
   @override

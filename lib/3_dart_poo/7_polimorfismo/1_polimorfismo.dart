@@ -1,8 +1,8 @@
-import 'package:dart_fundamentos/3_dart_poo/7_polimorfismo/anestesista.dart';
-import 'package:dart_fundamentos/3_dart_poo/7_polimorfismo/medico.dart';
-import 'package:dart_fundamentos/3_dart_poo/7_polimorfismo/obstetra.dart';
-import 'package:dart_fundamentos/3_dart_poo/7_polimorfismo/pediatra.dart';
-import 'package:dart_fundamentos/3_dart_poo/7_polimorfismo/residente_anestesia.dart';
+import 'anestesista.dart';
+import 'medico.dart';
+import 'obstetra.dart';
+import 'pediatra.dart';
+import 'residente_anestesia.dart';
 
 void main() {
   // Parto

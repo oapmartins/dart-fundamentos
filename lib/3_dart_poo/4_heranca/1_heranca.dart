@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/3_dart_poo/4_heranca/cachorro.dart';
+import 'cachorro.dart';
 
 void main() {
   var cachorro = Cachorro(idade: 10);

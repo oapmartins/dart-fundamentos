@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/3_dart_poo/5_heranca_covariant/fruta.dart';
+import 'fruta.dart';
 
 class Banana extends Fruta {
   final String tipo;
