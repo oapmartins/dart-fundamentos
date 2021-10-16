@@ -8,8 +8,8 @@ void main() {
   // Parto
   var medicos = <Medico>[
     ResidenteAnestesia(),
-    Obstetra(),
     Pediatra(),
+    Obstetra(),
   ];
 
   // Realizar um parto
