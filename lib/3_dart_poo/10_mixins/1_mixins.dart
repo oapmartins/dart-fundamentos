@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/3_dart_poo/10_mixins/joao.dart';
+import 'joao.dart';
 
 void main() {
   var joao = Joao();

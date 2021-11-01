@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/3_dart_poo/13_operator_methods/numero.dart';
+import 'numero.dart';
 
 void main() {
   var num1 = Numero(10);
