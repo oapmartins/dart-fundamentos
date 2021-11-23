@@ -16,6 +16,6 @@ void m2() {
 
 void p2() {
   Future.delayed(Duration(seconds: 2), () {
-    print('processo 2 sendo executado');
+    print('processo 2 sendo executado.');
   });
 }
