@@ -4,11 +4,12 @@ version: 1.0.0
 homepage: https://academiadoflutter.com.br
 
 environment:
-  sdk: '>=2.14.3 <3.0.0'
+  sdk: '>=2.13.0 <3.0.0'
 
 
 dependencies:
-  path: ^1.8.0
+  # path: ^1.8.0
+  http: ^0.13.3
 
 dev_dependencies:
   lints: ^1.0.0
