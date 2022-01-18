@@ -1,4 +1,4 @@
-import 'dart:convert' as convert;
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -17,9 +17,10 @@ Future<void> atualizarPost() async {
     'body': 'Descrição do post',
     'userId': '1',
   };
+
   var response = await http.put(
     Uri.parse(url),
-    body: convert.jsonEncode(mapaRequest),
+    body: jsonEncode(mapaRequest),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
@@ -35,8 +36,7 @@ Future<void> salvarPost() async {
     'body': 'Descrição do post',
     'userId': '1',
   };
-  var response =
-      await http.post(Uri.parse(url), body: convert.jsonEncode(mapaRequest));
+  var response = await http.post(Uri.parse(url), body: jsonEncode(mapaRequest));
   print(response.statusCode);
   print(response.body);
 }
@@ -45,7 +45,7 @@ buscarCep() async {
   var url = 'https://viacep.com.br/ws/01001000/json/';
   var response = await http.get(Uri.parse(url));
   if (response.statusCode == 200) {
-    var responseData = convert.jsonDecode(response.body);
+    var responseData = jsonDecode(response.body);
     if (responseData is Map) {
       print(responseData['cep']);
     }
@@ -56,7 +56,7 @@ buscarCepErro() async {
   var url = 'https://viacep.com.br/ws/0100100870/json/';
   var response = await http.get(Uri.parse(url));
   if (response.statusCode == 200) {
-    var responseData = convert.jsonDecode(response.body);
+    var responseData = jsonDecode(response.body);
     if (responseData is Map) {
       print(responseData['cep']);
     }
@@ -72,7 +72,7 @@ buscarPosts() async {
   var response = await http.get(Uri.parse(url));
 
   if (response.statusCode == 200) {
-    var responseData = convert.jsonDecode(response.body);
+    var responseData = jsonDecode(response.body);
     if (responseData is List) {
       responseData.forEach((element) {
         print(element['id']);
