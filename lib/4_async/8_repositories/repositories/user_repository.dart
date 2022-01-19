@@ -1,4 +1,4 @@
-import 'package:dart_fundamentos/8_repositories/models/user.dart';
+import 'package:dart_fundamentos/4_async/8_repositories/models/user.dart';
 import 'package:http/http.dart';
 
 class UserRepository {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dart_fundamentos/7_modelos/user_types.dart';
+import 'package:dart_fundamentos/4_async/8_repositories/models/user_types.dart';
 
 class User {
   final String id;

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dart_fundamentos/7_modelos/user_types_refatorado.dart';
+import 'package:dart_fundamentos/4_async/7_modelos/user_types_refatorado.dart';
 
 class UserRefatorado {
   final String id;
