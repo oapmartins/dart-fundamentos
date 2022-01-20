@@ -6,10 +6,9 @@ homepage: https://academiadoflutter.com.br
 environment:
   sdk: '>=2.13.0 <3.0.0'
 
-
 dependencies:
-  # path: ^1.8.0
   http: ^0.13.3
+  mysql1: ^0.19.2
 
 dev_dependencies:
   lints: ^1.0.0
