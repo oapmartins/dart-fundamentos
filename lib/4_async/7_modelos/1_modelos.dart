@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 
 void main() {
   // buscarCep();
-  buscarUser();
+  buscarCep();
 }
 
 Future<void> buscarCep() async {
