@@ -7,7 +7,7 @@ Future<void> main() async {
   // Insert
   // await mySqlConnection.query(
   //   'insert into aluno values(?,?)',
-  //   // [null, 'Octavio Augusto'],
+  //   [null, 'Octavio Augusto'],
   // );
 
   // Update
