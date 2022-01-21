@@ -7,18 +7,18 @@ Future<void> main() async {
   // Insert
   // await mySqlConnection.query(
   //   'insert into aluno values(?,?)',
-  //   [null, 'Octavio Augusto'],
+  //   // [null, 'Octavio Augusto'],
   // );
 
   // Update
-  await mySqlConnection.query(
-    "update aluno set nome =? where id = ?",
-    ['Octávio Augusto Martins', 4],
-  );
+  // await mySqlConnection.query(
+  //   "update aluno set nome =? where id = ?",
+  //   ['Octávio Augusto Martins', 4],
+  // );
 
   // Consulta todos resultado.
-  // final retornoSelet = await mySqlConnection.query('Select * from aluno');
-  // retornoSelet.forEach((row) {
+  // final retornoSelect = await mySqlConnection.query('Select * from aluno');
+  // retornoSelect.forEach((row) {
   //   print("ID: ${row['id']}");
   //   print("Nome: ${row['nome']}");
   // });
@@ -26,7 +26,7 @@ Future<void> main() async {
   // Consulta resultado unico
   final retornoSelectUnico = await mySqlConnection.query(
     'select * from aluno where id = ?',
-    [4],
+    [1],
   );
 
   if (retornoSelectUnico.isNotEmpty) {
