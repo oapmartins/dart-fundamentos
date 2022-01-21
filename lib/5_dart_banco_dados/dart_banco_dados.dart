@@ -1,4 +1,5 @@
 import 'package:dart_fundamentos/5_dart_banco_dados/database.dart';
+import 'package:mysql1/mysql1.dart';
 
 Future<void> main() async {
   final database = Database();
@@ -11,10 +12,17 @@ Future<void> main() async {
   // );
 
   // Update
-  // await mySqlConnection.query(
-  //   "update aluno set nome =? where id = ?",
-  //   ['Octávio Augusto Martins', 4],
-  // );
+
+  try {
+    await mySqlConnection.query(
+      "update aluno set nome =? where id = ?",
+      [4, 'Pedro João'],
+    );
+  } on MySqlException catch (e) {
+    print('Erro ao realizar a atualziação do dado, $e');
+  }
+
+  await mySqlConnection.transaction((conn) {});
 
   // Consulta todos resultado.
   // final retornoSelect = await mySqlConnection.query('Select * from aluno');
