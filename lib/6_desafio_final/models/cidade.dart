@@ -1,17 +1,23 @@
 import 'dart:convert';
 
 class Cidade {
+  final int idUf;
   final String nome;
   Cidade({
+    required this.idUf,
     required this.nome,
   });
 
   factory Cidade.fromMap(Map<String, dynamic> map) {
-    return Cidade(nome: map['nome']);
+    return Cidade(
+      idUf: map['id_uf'],
+      nome: map['nome'],
+    );
   }
 
   Map<String, dynamic> toMap() {
     return {
+      'id_uf': idUf,
       'nome': nome,
     };
   }
