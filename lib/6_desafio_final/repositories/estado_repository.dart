@@ -17,7 +17,7 @@ class EstadoRepository {
       var responseData = jsonDecode(response.body);
       if (responseData is List) _cadastrarEstados(responseData, conn);
 
-      print('- Finalizando cadastro Estados');
+      print('- Finalizando cadastro Estados ');
       return responseData;
     } else {
       throw Exception();
