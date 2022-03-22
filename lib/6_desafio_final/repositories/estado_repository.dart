@@ -15,7 +15,12 @@ class EstadoRepository {
 
     if (response.statusCode == 200) {
       var responseData = jsonDecode(response.body);
-      if (responseData is List) _cadastrarEstados(responseData, conn);
+      // RR - Eu particularmente não gosto muito de if in line.
+      // prefiro sempre que vc utilize as chaves e coloque o método dentro pois assim
+      // o código fica mais intuitivo e fácil de ler ;-) 
+      if (responseData is List){
+        _cadastrarEstados(responseData, conn);
+      }
 
       print('- Finalizando cadastro Estados ');
       return responseData;
@@ -24,7 +29,13 @@ class EstadoRepository {
     }
   }
 
+  //! RR - É muito importante vc sempre tipar as variáveis, pois assim
+  //! Você economiza tempo do compilador e do runtime do dart para tentar identificar 
+  //! o tipo da variável
   Future<bool> _cadastrarEstados(estados, MySqlConnection conn) async {
+
+    //! RR - Acredito que sua ideia era fazer em paralelo e 
+    //! para testar as Streams, interessante a forma que vc resolveu
     // Iniciando Strams
     final streamController = StreamController<Estado>.broadcast();
     final inStream = streamController.sink;
@@ -32,6 +43,8 @@ class EstadoRepository {
 
     try {
       outStream.listen((estado) => _inserirEstado(estado, conn));
+      //! RR - Não entendi muito bem esse tryCatch pois a principio o 
+      //! Listen vai executar o onError quando ocorrer algum problema no insert!!!.
     } on MySqlException catch (e) {
       print('Ocorreu um erro ao tentar cadastrar os dados do Estado');
       return false;

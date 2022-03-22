@@ -10,6 +10,11 @@ import 'package:mysql1/mysql1.dart';
 class CidadeRepository {
   final database = Database();
 
+  //! RR - Novamente é sempre importante declarar os tipos das variáveis
+  //! no caso o MapEstados está sendo setado como dynamic
+  //! RR - Nesse método você também deixou de declarar o tipo do retorn
+  //! fazendo com que esse método retorne dynamic e acredito que a sua
+  //! ideia era que retorna-se void
   Future cadastrarCidades(mapEstados, MySqlConnection conn) async {
     print('- Iniciando cadastro Cidades');
 
@@ -22,8 +27,10 @@ class CidadeRepository {
 
       if (response.statusCode == 200) {
         var responseData = jsonDecode(response.body);
+        //!RR - Mesma questão do if inline que acho difícil de ler
         if (responseData is List) _cadastrarCidades(responseData, conn);
       } else {
+        //! RR - PERFEITO tratamento de erro por Exception gosto muito da estratégia
         throw Exception();
       }
     }
@@ -32,23 +39,29 @@ class CidadeRepository {
 
   Future<bool> _cadastrarCidades(cidades, MySqlConnection conn) async {
     // Iniciando Strams
-    final streamController = StreamController<Cidade>.broadcast();
+    final streamController = StreamController<Map<String,dynamic>>.broadcast();
     final inStream = streamController.sink;
     final outStream = streamController.stream;
 
     try {
-      outStream.listen((cidade) => _inserirCidade(cidade, conn));
+      //! RR - aqui como vc está fazendo uma conversão,
+      //! você poderia utilizar a própria stream para fazer isso,
+      //! vou deixar o exemplo aqui
+      outStream.map((Map<String,dynamic> cidade) {
+        final nomeCidade = cidade['nome'];
+        final idUf =
+            cidade['municipio']['microrregiao']['mesorregiao']['UF']['id'];
+        return Cidade.fromMap({'id_uf': idUf, 'nome': nomeCidade});
+      }).listen((cidade) => _inserirCidade(cidade, conn));
+
+      // outStream.listen((cidade) => _inserirCidade(cidade, conn));
     } on MySqlException catch (e) {
       print('Ocorreu um erro ao tentar cadastrar os dados da Cidade');
       return false;
     }
 
-    for (var cidade in cidades) {
-      final nomeCidade = cidade['nome'];
-      final idUf =
-          cidade['municipio']['microrregiao']['mesorregiao']['UF']['id'];
-      inStream.add(Cidade.fromMap({'id_uf': idUf, 'nome': nomeCidade}));
-    }
+    //! RR - no caso como vc não tem await vc pode utilizar o forEach.
+    cidades.forEach(inStream.add);
     await streamController.close();
     return true;
   }
